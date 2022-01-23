@@ -12,4 +12,4 @@ RUN python -m pip install --upgrade pip && \
     poetry config virtualenvs.create false && \
     poetry install
 RUN chmod +x /src/scripts/*
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/src/scripts/docker-entrypoint.sh"]
