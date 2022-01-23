@@ -7,8 +7,7 @@ from app.config import Config
 async def set_commands(dp):
     await dp.bot.set_my_commands(
         [
-            types.BotCommand("start", "Запустить бота"),
-            types.BotCommand("help", "Вывести справку"),
+            types.BotCommand("start", "Restart bot"),
         ]
     )
     for admin in Config.ADMINS:
@@ -16,10 +15,12 @@ async def set_commands(dp):
             [
                 types.BotCommand("amount", "Количество юзеров в бд"),
                 types.BotCommand("chat_amount", "Количество групп в бд"),
-                types.BotCommand("chat_users_amount", "Количество пользователей во всех группах"),
+                types.BotCommand(
+                    "chat_users_amount", "Количество пользователей во всех группах"
+                ),
                 types.BotCommand("exists_amount", "Количество живых юзеров"),
                 types.BotCommand("broadcast", "Рассылка по всем юзерам"),
-                types.BotCommand("users_file", 'Записать юзеров в файл')
+                types.BotCommand("users_file", "Записать юзеров в файл"),
             ],
-            BotCommandScopeChat(admin)
+            BotCommandScopeChat(admin),
         )
