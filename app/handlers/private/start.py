@@ -15,7 +15,6 @@ async def get_start_message(m: Message):
 This bot can help u to generate idea for your new project.
 Just click on button bellow and relax =)
     """,
-        reply_markup=GenerateIdeaMarkup().get(),
     )
     await m.answer(
         await idea_generator(await m.bot.get_session()), reply_markup=Sharekb().get()
