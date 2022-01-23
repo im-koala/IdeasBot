@@ -5,7 +5,7 @@ services:
   mongo:
     container_name: mongo
     image: mongo
-    command: mongod --port 27017
+    command: mongod --port 27018
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGODB_USERNAME
@@ -13,7 +13,7 @@ services:
     volumes:
       - ./database:/data/db
     ports:
-      - '27017:27017'
+      - '27018:27018'
     networks:
       - botnet
 
