@@ -7,7 +7,7 @@ from app.services.generator import idea_generator
 
 async def get_project_idea(c: CallbackQuery):
     await c.answer()
-    await c.message.edit_text(
+    await c.message.answer(
         await idea_generator(await c.bot.get_session()), reply_markup=Sharekb().get()
     )
 
