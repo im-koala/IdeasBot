@@ -1,0 +1,36 @@
+name: Deploy Docker image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: log into VPS and trigger deploy script
+         run: echo "Delete this"
+    #     uses: appleboy/ssh-action@master
+    #     with:
+    #       host: ${{ secrets.HOST }}
+    #       username: ${{ secrets.USERNAME }}
+    #       key: ${{ secrets.key }}
+    #       port: ${{ secrets.PORT }}
+    #       script: |
+    #         cd ${{ github.event.repository.name }}
+    #         echo "Deploying changes..."
+    #         # Pull changes from the live branch
+    #         git pull
+
+    #         # Build the image with the new changes
+    #         docker build . -t bot
+
+    #         # Shut down the existing containers
+    #         docker-compose down
+
+    #         # Start the new containers
+    #         docker-compose up -d
+    #         echo "Deployed!"
