@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   mongo:
-    container_name: mongo
+    container_name: ideas-mongo
     image: mongo
     command: mongod --port 27018
     restart: always
@@ -18,7 +18,7 @@ services:
       - botnet
 
   bot:
-    container_name: bot-template
+    container_name: ideas-bot
     build:
       context: .
     restart: always
