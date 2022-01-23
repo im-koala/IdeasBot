@@ -1,8 +1,8 @@
 from aiogram import Dispatcher
 
-from app.handlers.private import start, help_, main
+from app.handlers.private import start, main
 
 
 def setup(dp: Dispatcher):
-    for module in (main, start, help_):
+    for module in (start, main):
         module.setup(dp)
