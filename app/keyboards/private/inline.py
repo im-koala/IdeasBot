@@ -3,17 +3,11 @@ from aiogram.utils.callback_data import CallbackData
 from app.utils.markup_constructor import InlineMarkupConstructor
 
 
-class ExampleInlineKb(InlineMarkupConstructor):
-    callback_data = CallbackData('test', 'number')
-
+class Sharekb(InlineMarkupConstructor):
     def get(self):
-        schema = [3, 2, 1]
+        text = "Hi, want to create some project, but don't have some ideas?\nI can help!\n@pidea_bot"
+        schema = [1]
         actions = [
-            {'text': '1', 'callback_data': self.callback_data.new('1')},
-            {'text': '2', 'callback_data': self.callback_data.new('2')},
-            {'text': '3', 'callback_data': '3'},
-            {'text': '4', 'callback_data': self.callback_data.new('4')},
-            {'text': '5', 'callback_data': (self.callback_data, '5')},
-            {'text': '6', 'callback_data': '6'},
+            {"text": "🗣Share this bot", "url": f"http://t.me/share/url?url={text}"},
         ]
         return self.markup(actions, schema)

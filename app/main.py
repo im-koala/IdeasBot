@@ -25,13 +25,13 @@ async def on_startup(dp):
     await set_commands(dp)
 
 
-async def on_shutdown(dp):
+async def on_shutdown(dp: Dispatcher):
     logging.warning("Shutting down..")
     session = await dp.bot.get_session()
     await session.close()
     await dp.storage.close()
     await dp.storage.wait_closed()
-    if mongo := dp.bot.get('mongo', None):
+    if mongo := dp.bot.get("mongo", None):
         await mongo.close()
         await mongo.wait_closed()
     logging.warning("Bye!")
@@ -44,7 +44,7 @@ def main():
         port=Config.MONGODB_PORT,
         db_name=f"{Config.MONGODB_DATABASE}_fsm",
         password=Config.MONGODB_PASSWORD,
-        uri=Config.MONGODB_URI
+        uri=Config.MONGODB_URI,
     )
     dp = Dispatcher(bot, storage=storage)
 
